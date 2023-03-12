@@ -2,7 +2,6 @@ package com.example.mynowinandroid.data.news.fake
 
 import com.example.mynowinandroid.data.news.NewsResource
 import com.example.mynowinandroid.data.news.VideoInfo
-//import com.example.mynowinandroid.data.news.VideoInfo
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toInstant
@@ -22,7 +21,7 @@ object FakeDataSource {
             hour = 0,
             minute = 0,
             second = 0,
-            nanosecond = 0
+            nanosecond = 0,
         ).toInstant(TimeZone.UTC),
         type = "Video \uD83D\uDCFA",
         topics = listOf(
@@ -31,8 +30,8 @@ object FakeDataSource {
         alternateVideo = VideoInfo(
             url = "",
             startTimestamp = 0,
-            endTimestamp = 0
-        )
+            endTimestamp = 0,
+        ),
     )
 
     val data1 = """{
@@ -54,10 +53,10 @@ object FakeDataSource {
         }
         }
         ]
-        }""".trimIndent()
+        }
+    """.trimIndent()
 
-
-        val data = """
+    val data = """
 {
   "resources": [
     {
@@ -1673,5 +1672,5 @@ object FakeDataSource {
     }
   ]
 }
-""".trimIndent()
+    """.trimIndent()
 }
