@@ -7,13 +7,13 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-class FakeNewsResourceRepositoryTest {
+class FakeNewsRepositoryTest {
 
-    private lateinit var subject: FakeNewsResourceRepository
+    private lateinit var subject: FakeNewsRepository
 
     @Before
     fun setup(){
-        subject = FakeNewsResourceRepository(ioDispatcher = TestCoroutineDispatcher())
+        subject = FakeNewsRepository(ioDispatcher = TestCoroutineDispatcher())
     }
 
     @Test
