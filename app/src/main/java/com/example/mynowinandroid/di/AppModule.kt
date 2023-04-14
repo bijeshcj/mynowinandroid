@@ -1,10 +1,15 @@
 package com.example.mynowinandroid.di
 
 import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.core.DataStoreFactory
+import androidx.datastore.dataStoreFile
+import com.example.mynowinandroid.data.UserPreferencesSerializer
 import com.example.mynowinandroid.data.news.NewsRepository
 import com.example.mynowinandroid.data.news.TopicsRepository
 import com.example.mynowinandroid.data.news.fake.FakeNewsRepository
 import com.example.mynowinandroid.data.news.fake.FakeTopicsRepository
+import com.example.mynowinandroid.data.nowinandroid.UserPreferences
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -28,10 +33,15 @@ interface AppModule {
 
     companion object {
 
-//        @Provides
-//        @Singleton
-//        fun provideUserPreferencesDataStore(@ApplicationContext context: Context,
-//        userPreference)
+        @Provides
+        @Singleton
+        fun provideUserPreferencesDataStore(
+            @ApplicationContext context: Context,
+            userPreferencesSerializer: UserPreferencesSerializer,
+        ): DataStore<UserPreferences> =
+            DataStoreFactory.create(serializer = userPreferencesSerializer) {
+                context.dataStoreFile("user_preferences.pb")
+            }
 
         @Provides
         @Singleton

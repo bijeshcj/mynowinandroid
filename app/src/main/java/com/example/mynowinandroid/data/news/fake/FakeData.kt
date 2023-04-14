@@ -5,6 +5,7 @@ import com.example.mynowinandroid.data.news.VideoInfo
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toInstant
+import org.intellij.lang.annotations.Language
 
 object FakeDataSource {
 
@@ -34,6 +35,108 @@ object FakeDataSource {
         ),
     )
 
+    @Language("JSON")
+    val topicsData = """
+[
+  {
+    "id": 0,
+    "name": "Headlines",
+    "description": ""
+  },
+  {
+    "id": 1,
+    "name": "UI",
+    "description": ""
+  },
+  {
+    "id": 2,
+    "name": "Testing",
+    "description": ""
+  },
+  {
+    "id": 3,
+    "name": "Performance",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "name": "Camera & Media",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "name": "Android Studio",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "name": "New APIs & Libraries",
+    "description": ""
+  },
+  {
+    "id": 7,
+    "name": "Data Storage",
+    "description": ""
+  },
+  {
+    "id": 8,
+    "name": "Kotlin",
+    "description": ""
+  },
+  {
+    "id": 9,
+    "name": "Compose",
+    "description": ""
+  },
+  {
+    "id": 10,
+    "name": "Privacy & Security",
+    "description": ""
+  },
+  {
+    "id": 11,
+    "name": "Publishing & Distribution",
+    "description": ""
+  },
+  {
+    "id": 12,
+    "name": "Tools",
+    "description": ""
+  },
+  {
+    "id": 13,
+    "name": "Platform & Releases",
+    "description": ""
+  },
+  {
+    "id": 14,
+    "name": "Architecture",
+    "description": ""
+  },
+  {
+    "id": 15,
+    "name": "Accessibility",
+    "description": ""
+  },
+  {
+    "id": 16,
+    "name": "Android Auto",
+    "description": ""
+  },
+  {
+    "id": 17,
+    "name": "Games",
+    "description": ""
+  },
+  {
+    "id": 18,
+    "name": "Wear OS",
+    "description": ""
+  }
+]
+    """.trimIndent()
+
+    @Language("JSON")
     val data1 = """{
         "resources": [
         {
@@ -56,6 +159,7 @@ object FakeDataSource {
         }
     """.trimIndent()
 
+    @Language("JSON")
     val data = """
 {
   "resources": [

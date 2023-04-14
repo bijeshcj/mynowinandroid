@@ -48,12 +48,15 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 // Setup protobuf configuration, generating lite Java and Kotlin classes
 protobuf {
     protoc {
-        artifact = libs.protobuf.protoc.get()
+        artifact = "com.google.protobuf:protoc:3.19.1"//libs.protobuf.protoc.get()
     }
     generateProtoTasks {
         all().each { task ->
@@ -70,6 +73,8 @@ protobuf {
 }
 
 dependencies {
+
+    def turbine_version = "0.7.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
@@ -91,19 +96,30 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.5.0-alpha05'
 
-    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-rc01'
+
 
 //    data store
     implementation 'androidx.datastore:datastore:1.0.0'
+
+//    protobuf
+    implementation 'com.google.protobuf:protobuf-kotlin-lite:3.19.1'
+
 
 
 
 //    hilt
     implementation 'com.google.dagger:hilt-android:2.44.2'
     kapt 'com.google.dagger:hilt-compiler:2.44.2'
+    implementation 'androidx.hilt:hilt-navigation-compose:1.1.0-alpha01'
 
 
 //  Test dependencies
+
+//    Flow test dependencies
+
+    testImplementation "app.cash.turbine:turbine:$turbine_version"
+
+
     testImplementation 'io.mockk:mockk:1.12.1'
 
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2'
