@@ -5,10 +5,12 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.dataStoreFile
 import com.example.mynowinandroid.data.UserPreferencesSerializer
+import com.example.mynowinandroid.data.fake.FakeNewsRepository
+import com.example.mynowinandroid.data.fake.FakeNiANetwork
+import com.example.mynowinandroid.data.fake.FakeTopicsRepository
+import com.example.mynowinandroid.data.network.NiANetwork
 import com.example.mynowinandroid.data.news.NewsRepository
 import com.example.mynowinandroid.data.news.TopicsRepository
-import com.example.mynowinandroid.data.news.fake.FakeNewsRepository
-import com.example.mynowinandroid.data.news.fake.FakeTopicsRepository
 import com.example.mynowinandroid.data.nowinandroid.UserPreferences
 import dagger.Binds
 import dagger.Module
@@ -22,6 +24,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 interface AppModule {
+
+    @Binds
+    fun bindsNiANetwork(fakeNiANetwork: FakeNiANetwork): NiANetwork
+
     @Binds
     fun bindsTopicRepository(fakeTopicsRepository: FakeTopicsRepository): TopicsRepository
 

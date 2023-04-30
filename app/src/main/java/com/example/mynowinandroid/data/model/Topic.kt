@@ -1,4 +1,4 @@
-package com.example.mynowinandroid.data.news
+package com.example.mynowinandroid.data.model
 
 import kotlinx.serialization.Serializable
 

@@ -13,4 +13,5 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.6.0'
     id 'java'
     id 'com.google.protobuf' version '0.8.18'
+    id 'com.google.devtools.ksp' version '1.6.0-1.0.1'
 }

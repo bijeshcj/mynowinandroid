@@ -2,7 +2,7 @@ package com.example.mynowinandroid.ui.foryou
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
-import com.example.mynowinandroid.data.news.Topic
+import com.example.mynowinandroid.data.model.Topic
 import com.example.mynowinandroid.testutil.TestDispatcherRule
 import com.example.mynowinandroid.testutil.TestNewsRepository
 import com.example.mynowinandroid.testutil.TestTopicsRepository

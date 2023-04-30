@@ -1,6 +1,6 @@
 package com.example.mynowinandroid.testutil
 
-import com.example.mynowinandroid.data.news.Topic
+import com.example.mynowinandroid.data.model.Topic
 import com.example.mynowinandroid.data.news.TopicsRepository
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.Flow

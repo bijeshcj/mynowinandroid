@@ -1,5 +1,6 @@
 package com.example.mynowinandroid.data.news
 
+import com.example.mynowinandroid.data.model.Topic
 import kotlinx.coroutines.flow.Flow
 
 interface TopicsRepository {

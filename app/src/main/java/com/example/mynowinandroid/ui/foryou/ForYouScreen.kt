@@ -22,8 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.mynowinandroid.R
-import com.example.mynowinandroid.data.news.NewsResource
-import com.example.mynowinandroid.data.news.Topic
+import com.example.mynowinandroid.data.model.NewsResource
+import com.example.mynowinandroid.data.model.Topic
 import com.google.accompanist.flowlayout.FlowRow
 
 @Composable
@@ -71,6 +71,7 @@ fun ForYouScreen(
                         }
                     }
                     items(uiState.feed) { _: NewsResource ->
+                        // TODO: News item
                     }
                 }
             }

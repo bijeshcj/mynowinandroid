@@ -6,7 +6,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import com.example.mynowinandroid.data.news.Topic
+import com.example.mynowinandroid.data.model.Topic
 import org.junit.Rule
 import org.junit.Test
 import com.example.mynowinandroid.R

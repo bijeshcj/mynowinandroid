@@ -7,9 +7,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.saveable
+import com.example.mynowinandroid.data.model.NewsResource
+import com.example.mynowinandroid.data.model.Topic
 import com.example.mynowinandroid.data.news.NewsRepository
-import com.example.mynowinandroid.data.news.NewsResource
-import com.example.mynowinandroid.data.news.Topic
 import com.example.mynowinandroid.data.news.TopicsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -86,13 +86,12 @@ class ForYouViewModel @Inject constructor(
         }
     }
 
-    fun saveFollowedTopics(){
-        if(inProgressTopicSelection.isEmpty()) return
+    fun saveFollowedTopics() {
+        if (inProgressTopicSelection.isEmpty()) return
         viewModelScope.launch {
             topicsRepository.setFollowedTopicIds(inProgressTopicSelection)
         }
     }
-
 }
 
 /**

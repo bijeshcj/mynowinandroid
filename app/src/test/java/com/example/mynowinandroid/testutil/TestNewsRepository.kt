@@ -1,7 +1,7 @@
 package com.example.mynowinandroid.testutil
 
+import com.example.mynowinandroid.data.model.NewsResource
 import com.example.mynowinandroid.data.news.NewsRepository
-import com.example.mynowinandroid.data.news.NewsResource
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
