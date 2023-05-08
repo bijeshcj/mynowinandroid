@@ -1,8 +1,11 @@
 package com.example.mynowinandroid.ui
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.captionBarPadding
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Bookmarks
@@ -31,38 +34,34 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mynowinandroid.R
 import com.example.mynowinandroid.ui.theme.NiaTheme
-import com.google.accompanist.insets.ProvideWindowInsets
-import com.google.accompanist.insets.systemBarsPadding
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NiaApp() {
     NiaTheme {
-        ProvideWindowInsets {
-            val navController = rememberNavController()
-            val navigationActions = remember(navController) {
-                NiaNavigationActions(navController)
-            }
+        val navController = rememberNavController()
+        val navigationActions = remember(navController) {
+            NiaNavigationActions(navController)
+        }
 
-            val navBackStackEntry by navController.currentBackStackEntryAsState()
-            val currentRoute =
-                navBackStackEntry?.destination?.route ?: NiaDestinations.FOR_YOU_ROUTE
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute =
+            navBackStackEntry?.destination?.route ?: NiaDestinations.FOR_YOU_ROUTE
 
-            Scaffold(
-                modifier = Modifier,
-                bottomBar = {
-                    // TODO: Only show on small screens
-                    NiABottomBar(navigationActions, currentRoute)
-                },
-            ) { padding ->
-                Surface(Modifier.fillMaxSize()) {
-                    NiaNavGraph(
-                        navController = navController,
-                        modifier = Modifier
-                            .systemBarsPadding(bottom = false)
-                            .padding(padding),
-                    )
-                }
+        Scaffold(
+            modifier = Modifier,
+            bottomBar = {
+                // TODO: Only show on small screens
+                NiABottomBar(navigationActions, currentRoute)
+            },
+        ) { padding ->
+            Surface(Modifier.fillMaxSize()) {
+                NiaNavGraph(
+                    navController = navController,
+                    modifier = Modifier
+                        .statusBarsPadding()
+                        .padding(padding),
+                )
             }
         }
     }
@@ -77,7 +76,7 @@ private fun NiABottomBar(
     // navigation is equal to the container color of the navigation bar.
     Surface(color = MaterialTheme.colorScheme.surface) {
         NavigationBar(
-            modifier = Modifier.systemBarsPadding(top = false),
+            modifier = Modifier.navigationBarsPadding().captionBarPadding(),
             tonalElevation = 0.dp,
         ) {
             TOP_LEVEL_DESTINATIONS.forEach { dst ->
