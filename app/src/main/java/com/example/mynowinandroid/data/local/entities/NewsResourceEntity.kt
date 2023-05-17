@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import kotlinx.datetime.Instant
 
 @Entity(
-    tableName = "news_resource",
+    tableName = "news_resources",
     foreignKeys = [
         ForeignKey(
             entity = EpisodeEntity::class,

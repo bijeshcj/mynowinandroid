@@ -1,7 +1,7 @@
 package com.example.mynowinandroid.data.fake
 
 import com.example.mynowinandroid.di.DefaultNiaDispatchers
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -20,7 +20,15 @@ class FakeNiANetworkTest {
     }
 
     @Test
-    fun testDeserializationOfNewsResources() = runBlocking {
+    fun testDeserializationOfTopics() = runTest {
+        assertEquals(
+            FakeDataSource.sampleTopic,
+            subject.getTopics().first(),
+        )
+    }
+
+    @Test
+    fun testDeserializationOfNewsResources() = runTest {
         assertEquals(
             FakeDataSource.sampleResource,
             subject.getNewsResources().first(),

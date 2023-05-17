@@ -14,15 +14,23 @@ data class NewsResource(
     )
     val episode: EpisodeEntity,
     @Relation(
-        parentColumn = "news_resource_id",
-        entityColumn = "author_id",
-        associateBy = Junction(NewsResourceAuthorCrossRef::class),
+        parentColumn = "id",
+        entityColumn = "id",
+        associateBy = Junction(
+            NewsResourceAuthorCrossRef::class,
+            parentColumn = "news_resource_id",
+            entityColumn = "author_id",
+        ),
     )
     val authors: List<AuthorEntity>,
     @Relation(
-        parentColumn = "news_resource_id",
-        entityColumn = "topic_id",
-        associateBy = Junction(NewsResourceTopicCrossRef::class),
+        parentColumn = "id",
+        entityColumn = "id",
+        associateBy = Junction(
+            NewsResourceTopicCrossRef::class,
+            parentColumn = "news_resource_id",
+            entityColumn = "topic_id",
+        ),
     )
     val topics: List<TopicEntity>,
 )
@@ -50,4 +58,3 @@ data class NewsResource(
 //    val endTimestamp: Int,
 // )
 //
-
