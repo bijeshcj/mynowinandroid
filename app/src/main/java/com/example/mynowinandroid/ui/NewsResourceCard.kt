@@ -1,21 +1,53 @@
 package com.example.mynowinandroid.ui
 
-import android.content.res.Configuration
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
+import androidx.compose.ui.unit.dp
 import com.example.mynowinandroid.R
+import com.example.mynowinandroid.data.fake.FakeDataSource
 import com.example.mynowinandroid.data.model.NewsResource
+import com.example.mynowinandroid.data.network.NetworkAuthor
+import com.example.mynowinandroid.data.network.NetworkEpisode
+import com.example.mynowinandroid.data.network.NetworkTopic
+import com.example.mynowinandroid.data.network.asEntity
 import com.example.mynowinandroid.ui.theme.NiaTheme
+
+@Composable
+fun NewsResourceCardExpanded(
+    newsResource: NewsResource,
+    isBookMarked: Boolean,
+    onToggleBookmark: () -> Unit,
+) {
+    Column(modifier = Modifier.padding(16.dp)) {
+        Row {
+            NewsResourceTitle(
+                newsResource.entity.title,
+                modifier = Modifier.fillMaxWidth(.8f),
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            BookmarkButton(isBookMarked = isBookMarked, onClick = onToggleBookmark)
+        }
+    }
+}
 
 @Composable
 fun BookmarkButton(
@@ -52,8 +84,15 @@ fun NewsResourceHeaderImage(newsResource: NewsResource) {
 }
 
 @Composable
-fun NewsResourceTitle(newsResource: NewsResource) {
-    TODO()
+fun NewsResourceTitle(
+    newsResourceTitle: String,
+    modifier: Modifier = Modifier,
+) {
+    Text(
+        newsResourceTitle,
+        style = MaterialTheme.typography.headlineMedium,
+        modifier = modifier,
+    )
 }
 
 @Composable
@@ -67,8 +106,8 @@ fun NewsResourceLink(newsResource: NewsResource) {
 }
 
 @Composable
-fun NewsResourceShortDescription(newsResource: NewsResource) {
-    TODO()
+fun NewsResourceShortDescription(newsResourceShortDescription: String) {
+    Text(text = newsResourceShortDescription, style = MaterialTheme.typography.bodyMedium)
 }
 
 @Composable
@@ -86,7 +125,7 @@ fun NewsResourceCardExpanded() {
 fun BookmarkButtonPreview() {
     NiaTheme {
         Surface {
-            BookmarkButton(isBookMarked = false, onClick = { })
+            BookmarkButton(isBookMarked = false, onClick = { /*TODO*/ })
         }
     }
 }
@@ -101,13 +140,42 @@ fun BookmarkButtonBookmarkedPreview() {
     }
 }
 
-@Preview("Expanded Resource Card")
-@Preview("Expanded Resource Card (dark", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun ExpandedResourcePreview() {
+fun ExpandedNewsResourcePreview(
+    @PreviewParameter(NewsResourcePreviewParameterProvider::class) newsResource: NewsResource,
+) {
     NiaTheme {
         Surface {
-            NewsResourceCardExpanded()
+            NewsResourceCardExpanded(newsResource, true, {})
         }
     }
+}
+
+class NewsResourcePreviewParameterProvider : PreviewParameterProvider<NewsResource> {
+    override val values: Sequence<NewsResource> = sequenceOf(
+        NewsResource(
+            FakeDataSource.sampleResource.asEntity(),
+            NetworkEpisode(
+                id = 1,
+                name = "Now in Android 40",
+                alternateAudio = null,
+                alternateVideo = null,
+                publishDate = FakeDataSource.sampleResource.publishDate,
+            ).asEntity(),
+            listOf(
+                NetworkAuthor(
+                    id = 1,
+                    name = "Android",
+                    imageUrl = "",
+                ).asEntity(),
+            ),
+            listOf(
+                NetworkTopic(
+                    id = 3,
+                    name = "Performance",
+                    description = "",
+                ).asEntity(),
+            ),
+        ),
+    )
 }
