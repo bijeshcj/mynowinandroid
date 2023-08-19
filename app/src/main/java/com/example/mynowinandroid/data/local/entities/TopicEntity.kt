@@ -15,4 +15,5 @@ data class TopicEntity(
     val id: Int,
     val name: String,
     val description: String,
+    val followed: Boolean
 )

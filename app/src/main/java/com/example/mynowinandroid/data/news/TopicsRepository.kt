@@ -14,6 +14,8 @@ interface TopicsRepository {
      */
     suspend fun setFollowedTopicIds(followedTopicIds: Set<Int>)
 
+    suspend fun toggleFollowedTopicId(followedTopicId: Int, followed: Boolean)
+
     /**
      * Returns the users currently followed topics
      */

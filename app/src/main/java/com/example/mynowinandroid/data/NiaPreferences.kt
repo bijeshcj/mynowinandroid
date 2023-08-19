@@ -26,6 +26,25 @@ class NiaPreferences @Inject constructor(
         }
     }
 
+    suspend fun toggleFollowedTopicId(followedTopicId: Int, followed:Boolean){
+        try {
+            userPreferences.updateData {
+                it.copy {
+                    val current =
+                        if (followed){
+                            this.followedTopicsIds + followedTopicId
+                        }else{
+                            this.followedTopicsIds - followedTopicId
+                        }
+                    this.followedTopicsIds.clear()
+                    this.followedTopicsIds.addAll(current)
+                }
+            }
+        }catch (ioException: IOException){
+            Log.e("NiaPreferences","Failed to update user preferences",ioException)
+        }
+    }
+
     val followedTopicIds: Flow<Set<Int>> = userPreferences.data.retry {
         Log.e("NiaPreferences", "Failed to update user preference", it)
         true

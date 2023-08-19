@@ -22,6 +22,18 @@ class TestTopicsRepository : TopicsRepository {
         _followedTopicIds.tryEmit(followedTopicIds)
     }
 
+    override suspend fun toggleFollowedTopicId(followedTopicId: Int, followed: Boolean) {
+        getCurrentFollowedtopics()?.let { current ->
+            _followedTopicIds.tryEmit(
+                if (followed) {
+                    current.plus(followedTopicId)
+                } else {
+                    current.minus(followedTopicId)
+                },
+            )
+        }
+    }
+
     override fun getFollowedTopicsIdsStream(): Flow<Set<Int>> {
         return _followedTopicIds
     }

@@ -5,6 +5,7 @@ import com.example.mynowinandroid.data.model.Topic
 import com.example.mynowinandroid.data.network.NetworkTopic
 import com.example.mynowinandroid.data.news.TopicsRepository
 import com.example.mynowinandroid.di.NiaDispatchers
+import com.google.samples.apps.nowinandroid.data.fake.FakeDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -28,6 +29,9 @@ class FakeTopicsRepository @Inject constructor(
     }.flowOn(dispatchers.IO)
 
     override suspend fun setFollowedTopicIds(followedTopicIds: Set<Int>) = niaPreferences.setFollowedTopicIds(followedTopicIds)
+    override suspend fun toggleFollowedTopicId(followedTopicId: Int, followed: Boolean) {
+        niaPreferences.toggleFollowedTopicId(followedTopicId,followed)
+    }
 
     override fun getFollowedTopicsIdsStream(): Flow<Set<Int>> = niaPreferences.followedTopicIds
 }

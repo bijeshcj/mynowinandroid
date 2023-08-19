@@ -1,18 +1,28 @@
-package com.example.mynowinandroid.data.fake
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ // ktlint-disable filename
+
+package com.google.samples.apps.nowinandroid.data.fake
 
 import com.example.mynowinandroid.data.network.NetworkNewsResource
-import com.example.mynowinandroid.data.network.NetworkTopic
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toInstant
 import org.intellij.lang.annotations.Language
 
 object FakeDataSource {
-    val sampleTopic = NetworkTopic(
-        id = 0,
-        name = "Headlines",
-        description = "",
-    )
     val sampleResource = NetworkNewsResource(
         id = 1,
         episodeId = 52,
@@ -39,97 +49,97 @@ object FakeDataSource {
   {
     "id": 0,
     "name": "Headlines",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 1,
     "name": "UI",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 2,
     "name": "Testing",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 3,
     "name": "Performance",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 4,
     "name": "Camera & Media",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 5,
     "name": "Android Studio",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 6,
     "name": "New APIs & Libraries",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 7,
     "name": "Data Storage",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 8,
     "name": "Kotlin",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 9,
     "name": "Compose",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 10,
     "name": "Privacy & Security",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 11,
     "name": "Publishing & Distribution",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 12,
     "name": "Tools",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 13,
     "name": "Platform & Releases",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 14,
     "name": "Architecture",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 15,
     "name": "Accessibility",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 16,
     "name": "Android Auto",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 17,
     "name": "Games",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   },
   {
     "id": 18,
     "name": "Wear OS",
-    "description": ""
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui."
   }
 ]
     """.trimIndent()

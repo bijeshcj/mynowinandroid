@@ -41,7 +41,7 @@ class NavigationTest {
         composeTestRule.onNodeWithText("Saved").performClick()
         composeTestRule.onNodeWithContentDescription("Navigate up")
             .assertDoesNotExist()
-        composeTestRule.onNodeWithText("Topics").performClick()
+        composeTestRule.onNodeWithText("Following").performClick()
         composeTestRule.onNodeWithContentDescription("Navigate up")
             .assertDoesNotExist()
     }
@@ -56,12 +56,12 @@ class NavigationTest {
     @Test
     fun backFromDestinationReturnsToForYou() {
         composeTestRule.onNodeWithText("Episodes").performClick()
-        composeTestRule.onNodeWithText("Topics").performClick()
+        composeTestRule.onNodeWithText("Following").performClick()
         Espresso.pressBack()
         composeTestRule.forYouDestinationTopMatcher().assertExists()
     }
 
     private fun ComposeTestRule.forYouDestinationTopMatcher() = onNodeWithTag("FOR YOU")
 
-    private fun ComposeTestRule.topicsDestinationTopMatcher() = onNodeWithText("TOPICS")
+    private fun ComposeTestRule.followingDestinationTopMatcher() = onNodeWithText("TOPICS")
 }

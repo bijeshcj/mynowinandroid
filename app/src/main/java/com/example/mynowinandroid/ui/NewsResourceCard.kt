@@ -23,13 +23,13 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import com.example.mynowinandroid.R
-import com.example.mynowinandroid.data.fake.FakeDataSource
 import com.example.mynowinandroid.data.model.NewsResource
 import com.example.mynowinandroid.data.network.NetworkAuthor
 import com.example.mynowinandroid.data.network.NetworkEpisode
 import com.example.mynowinandroid.data.network.NetworkTopic
 import com.example.mynowinandroid.data.network.asEntity
 import com.example.mynowinandroid.ui.theme.NiaTheme
+import com.google.samples.apps.nowinandroid.data.fake.FakeDataSource
 
 @Composable
 fun NewsResourceCardExpanded(
