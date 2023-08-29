@@ -3,7 +3,6 @@ package com.example.mynowinandroid.ui
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.testTag
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,7 +18,7 @@ fun NiaNavGraph(
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
         composable(NiaDestinations.FOR_YOU_ROUTE) {
-            ForYouRoute(modifier = modifier.testTag("FOR YOU"))
+            ForYouRoute(modifier)
         }
         composable(NiaDestinations.EPISODES_ROUTE) {
             Text("EPISODES", modifier)
@@ -28,8 +27,10 @@ fun NiaNavGraph(
             Text("SAVED", modifier)
         }
         composable(NiaDestinations.FOLLOWING_ROUTE) {
-            FollowingRoute(navigateToTopic = { navController.navigate(NiaDestinations.TOPICS_ROUTE) },
-            modifier = modifier.testTag(NiaDestinations.FOLLOWING_ROUTE))
+            FollowingRoute(
+                navigateToTopic = { navController.navigate(NiaDestinations.TOPICS_ROUTE) },
+                modifier = modifier,
+            )
         }
         composable(NiaDestinations.TOPICS_ROUTE) {
             Text("TOPICS", modifier)

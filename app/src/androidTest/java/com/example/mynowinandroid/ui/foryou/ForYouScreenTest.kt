@@ -4,12 +4,13 @@ import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.assertIsOff
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import com.example.mynowinandroid.R
 import com.example.mynowinandroid.data.model.Topic
 import org.junit.Rule
 import org.junit.Test
-import com.example.mynowinandroid.R
 
 class ForYouScreenTest {
     @get:Rule
@@ -62,13 +63,13 @@ class ForYouScreenTest {
         composeTestRule
             .onNodeWithText("UI")
             .assertIsDisplayed()
-            // .assertIsOff()
+            .assertIsOff()
             .assertHasClickAction()
 
         composeTestRule
             .onNodeWithText("TOOLS")
             .assertIsDisplayed()
-            // .assertIsOff()
+            .assertIsOff()
             .assertHasClickAction()
 
         composeTestRule

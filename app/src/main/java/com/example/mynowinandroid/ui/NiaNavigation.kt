@@ -1,6 +1,7 @@
 package com.example.mynowinandroid.ui
 
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 
 object NiaDestinations {
     const val FOR_YOU_ROUTE = "for_you"
@@ -13,8 +14,11 @@ object NiaDestinations {
 class NiaNavigationActions(private val navController: NavController) {
     fun navigateToTopLevelDestination(route: String) {
         navController.navigate(route) {
+            popUpTo(navController.graph.findStartDestination().id){
+                saveState = true
+            }
             launchSingleTop = true
-            navController.graph.startDestinationRoute?.let { popUpTo(it) }
+            restoreState = true
         }
     }
 }
